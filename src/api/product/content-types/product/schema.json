@@ -4,18 +4,86 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "product"
+    "displayName": "product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "Title": {
       "type": "string",
       "required": true,
       "maxLength": 71,
       "minLength": 3
+    },
+    "Slug": {
+      "type": "uid",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 110,
+      "default": "lap_len_idea_g3"
+    },
+    "Description": {
+      "type": "text",
+      "required": false
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Keyboard",
+        "Mouse",
+        "Cable",
+        "Laptop",
+        "Monitor",
+        "RAM",
+        "Hard Disk",
+        "Pen drive",
+        "SD Card",
+        "Connector",
+        "Mother Board",
+        "CPU",
+        "UPS",
+        "Camera",
+        "Microphone"
+      ],
+      "default": "Laptop",
+      "required": true
+    },
+    "Size": {
+      "type": "string",
+      "maxLength": 70
+    },
+    "Color": {
+      "type": "enumeration",
+      "enum": [
+        "Red",
+        "White",
+        "Black",
+        "Green ",
+        "RGB",
+        "Blue"
+      ],
+      "default": "Black",
+      "required": true
+    },
+    "Price": {
+      "type": "integer",
+      "required": true
+    },
+    "AvailableQuantity": {
+      "type": "integer",
+      "required": true,
+      "default": 0
     }
   }
 }
