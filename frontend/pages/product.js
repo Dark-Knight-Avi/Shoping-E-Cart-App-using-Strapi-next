@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-key */
 import React from 'react';
+import Link  from 'next/link';
 
 const product = ({ products }) => {
   return (
-    <div className='mx-24'>
+    <div className='md:mx-24 sm:mx-4'>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap w-full mb-20">
@@ -16,11 +18,13 @@ const product = ({ products }) => {
             {products.data.map((item) => {
               return(
                 <div className="xl:w-1/4 md:w-1/2 p-4">
-                  <div className="bg-gray-100 p-6 rounded-lg">
-                    <img className="h-40 rounded w-full object-cover object-center mb-6" src={item.attributes.Image.data && item.attributes.Image.data.attributes.name} alt="content" />
+                  <div className="bg-gray-100 p-6 rounded-lg h-[33rem]">
+                    <img className="h-75 rounded w-full mb-6" src={item.attributes.Image.data && item.attributes.Image.data.attributes.name} alt="content" />
                     <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">{item.attributes.Category}</h3>
                     <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{item.attributes.Title}</h2>
+                    <h4 className="text-lg text-gray-900 font-medium title-font mb-4">₹{item.attributes.Price}</h4>
                     <p className="leading-relaxed text-base">{item.attributes.Description}</p>
+                    <Link href={ `/products/${item.attributes.Slug}`}><button className="inline-flex text-sm mt-4 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy Now</button></Link>
                   </div>
                 </div>
               )

@@ -54,7 +54,8 @@
         "CPU",
         "UPS",
         "Camera",
-        "Microphone"
+        "Microphone",
+        "Mobile"
       ],
       "default": "Laptop",
       "required": true
