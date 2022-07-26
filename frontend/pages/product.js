@@ -17,7 +17,7 @@ const product = ({ products }) => {
           <div className="flex flex-wrap -m-4">
             {products.data.map((item) => {
               return(
-                <div className="xl:w-1/4 md:w-1/2 p-4">
+                <div key={item.attributes.Slug} className="xl:w-1/4 md:w-1/2 p-4">
                   <div className="bg-gray-100 p-6 rounded-lg h-[33rem]">
                     <img className="h-75 rounded w-full mb-6" src={item.attributes.Image.data && item.attributes.Image.data.attributes.name} alt="content" />
                     <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">{item.attributes.Category}</h3>
