@@ -1,10 +1,17 @@
 import React from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 const Slug = ({ product, addToCart, quantity }) => {
     const router = useRouter()
     const { slug } = router.query
     return (
         <div className="text-gray-600 body-font overflow-hidden md:mx-24">
+            <Link href="/product" className="flex font-semibold  text-sm mt-10">
+                <div className='flex text-indigo-600 cursor-pointer'>
+
+                    <svg className="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" /></svg>Continue Shopping
+                </div>
+            </Link>
             <div className="container px-5 py-14 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
                     <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto md:h-64 rounded" src={product.attributes.Image.data.attributes.name} />
@@ -77,7 +84,8 @@ const Slug = ({ product, addToCart, quantity }) => {
                             <span className="title-font font-medium text-2xl text-gray-900">${product.attributes.Price}</span>
                             <div className="flex">
                                 <button onClick={() => { addToCart(slug, 1, product.attributes.Price) }} className="flex ml-auto mx-6 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Add to Cart {quantity(slug) > 0 ? `(${quantity(slug)})` : ""}</button>
-                                <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Checkout</button>
+                                <Link href="/checkout"><button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Checkout</button>
+                                </Link>
                             </div>
                         </div>
                     </div>

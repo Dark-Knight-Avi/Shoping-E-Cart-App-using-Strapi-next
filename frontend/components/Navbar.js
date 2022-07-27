@@ -1,9 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 export default function Navbar({ cart }) {
-  
   return (
-    <header className="text-gray-600 body-font mx-20">
+    <header className="text-gray-600 body-font md:mx-20">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link href="/"><a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <img width={20} src="/logo.svg" alt="efef"/>
